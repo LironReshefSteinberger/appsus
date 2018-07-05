@@ -2,6 +2,19 @@
     box-sizing: border-box;
 }
 
+/* Font Face */
+
+@font-face {
+    font-family: Lato-regular;
+    src: url('../fonts/Lato/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: Shrikhand-regular;
+    src: url('../fonts/Shrikhand/Shrikhand-Regular.ttf');
+}
+/* font-family: 'Shrikhand', cursive; */
+
 html {
     margin: 0;
     background-color: aliceblue;
@@ -9,4 +22,92 @@ html {
 
 .router-link-active {
     color: orange;
+}
+
+
+
+body {
+    margin: 0;
+}
+
+div, h1, h2, h3, p, li {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+a, .btn {
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #ffffff;
+}
+
+/* ******HELPERS********** */
+
+.text-align {
+    text-align: center;
+}
+
+
+/* lists */
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* flex */
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.direction {
+    flex-direction: column;
+}
+
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.header {
+    background-color: #ffffff;
+    height: 130px;   
+}
+
+.header h1 {
+    text-align: center;
+    line-height: 3rem;
+    font-size: 3rem;
+    padding: 20px;
+    color: rgb(52, 52, 241);
+    font-family: 'Shrikhand', cursive;
 }
