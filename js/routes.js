@@ -11,7 +11,7 @@ const routes = [
     
       children: [
         {
-          path: '/compose', component: composeEmail
+          path: 'compose', component: composeEmail
         }
       ]},
     {path: '/keeper-app', component: keeperApp},
