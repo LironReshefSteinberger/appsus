@@ -1,10 +1,10 @@
 // console.log('keeper-cmp');
 
-import keeperService from '../services/keeper-service.js'
-import imgType from '../cmps/keeper/img-type-cmp.js'
-import txtType from '../cmps/keeper/txt-type-cmp.js'
+import keeperService from '../../services/keeper-service.js'
+import imgType from '../../cmps/keeper/img-type-cmp.js'
+import txtType from '../../cmps/keeper/txt-type-cmp.js'
 // import addNote from '../cmps/keeper/add-note-cmp.js'
-import editNote from '../cmps/keeper/edit-note-cmp.js'
+import editNote from '../../cmps/keeper/edit-note-cmp.js'
 
 export default {
     template: `

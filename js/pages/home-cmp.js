@@ -1,6 +1,8 @@
 
-import emailApp from './email-cmp.js'
-import keeperApp from './keeper-cmp.js'
+import emailApp from './email/email-app-cmp.js'
+import keeperApp from './keeper/keeper-app-cmp.js'
+
+
 
 
 export default {
@@ -15,7 +17,6 @@ export default {
             </section>`,
     components: {
         emailApp,
-        keeperApp
-
+        keeperApp,
     }
 }
