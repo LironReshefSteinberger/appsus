@@ -17,13 +17,8 @@
 
 html {
     margin: 0;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
-
-.router-link-active {
-    color: orange;
-}
-
 
 
 body {
@@ -99,15 +94,53 @@ a, .btn {
 }
 
 .header {
-    background-color: #ffffff;
-    height: 130px;   
+    /* background-color: #ffffff; */
+    height: 130px;  
+    border-bottom: 1px solid #1A00C4;
+    justify-content: space-between;
 }
 
-.header h1 {
+/* .header h1 {
     text-align: center;
     line-height: 3rem;
     font-size: 3rem;
     padding: 20px;
-    color: rgb(52, 52, 241);
     font-family: 'Shrikhand', cursive;
+} */
+
+.logo {
+    /* float: left; */
+    /* position: relative; */
+    /* top: -100px; */
+    /* left: 20px; */
+    width: 150px;
+    padding: 1rem;
+    margin: 0 20px;
+    /*colors*/
+    /* blue: #1A00C4;
+    orange: #F66920;
+    green: #3BC242; */
+    align-self: flex-start;
 }
+
+.nav-bar {
+    font-family: 'Shrikhand', cursive;
+    /* text-align: center; */
+    /* line-height: 1.5rem; */
+    font-size: 1.5rem;
+    padding: 20px 50px;
+    color:  #3BC242;
+    text-align: center;
+    /* clear: both; */
+    align-self: center;
+
+}
+a:visited {
+    color: #1A00C4;
+}
+
+.router-link-active {
+    color: #3BC242;
+    font-weight: bold;
+}
+

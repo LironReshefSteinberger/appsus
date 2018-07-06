@@ -3,8 +3,8 @@
 import keeperService from '../../services/keeper-service.js'
 import imgType from '../../cmps/keeper/img-type-cmp.js'
 import txtType from '../../cmps/keeper/txt-type-cmp.js'
-// import addNote from '../cmps/keeper/add-note-cmp.js'
-import editNote from '../../cmps/keeper/edit-note-cmp.js'
+// import addNote from '../../pages/keeper/add-note-cmp.js'
+import previewNote from '../../pages/keeper/preview-note-cmp.js'
 
 export default {
     template: `
@@ -14,7 +14,8 @@ export default {
                     <li v-for="(note, idx) in notes" :key="note.id">
                         <!-- {{note.id}} -->
                         <!-- {{note.type}} -->
-                        <router-link :to="'/keeper-app/edit/'+note.id">
+                        <h2 class="title">{{note.title}}</h2>
+                        <router-link :to="'/keeper-app/'+note.id">
                             <component :is="note.type" :note="note"></component>
                         </router-link>
                     </li>
@@ -37,6 +38,6 @@ export default {
         imgType,
         txtType,
         // addNote,
-        editNote
+        previewNote
     }
 }

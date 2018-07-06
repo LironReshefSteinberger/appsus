@@ -9,10 +9,10 @@ export default {
     template: `
             <section class="home">
                 <router-link to="/email-app">
-                    <img src="img/email/email.png" />
+                    <img src="img/email/email_1.png" />
                 </router-link>
                 <router-link to="/keeper-app">
-                    <img src="img/keeper/keeper.png" />
+                    <img src="img/keeper/notes_1.png" />
                 </router-link>
             </section>`,
     components: {

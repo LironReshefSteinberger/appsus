@@ -80,10 +80,30 @@ function getNoteById(id) {
     return Promise.resolve(note);
 }
 
+function saveNote(note) {
+    console.log('saveNote in service,', note);
+    if (note.id) {
+        var noteIdx = notes.findIndex(currNote => currNote.id === note.id);
+        console.log('saveNote in service,noteIdx', noteIdx);
+        // Vue.js Caveat!
+        notes.splice(noteIdx, 1, note)
+        // books[bookIdx] = book;
+
+    } else {
+        note.id = makeId();
+        notes.push(note);
+    }
+    utilService.saveToStorage(NOTES_KEY, notes);
+    // console.log('Sevice is saving the note', note);
+    return Promise.resolve(note);
+    
+}
+
 export default {
     query,
     getNoteById,
-    createEmptyNote
+    createEmptyNote,
+    saveNote
 
 
 }
