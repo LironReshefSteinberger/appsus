@@ -17,7 +17,7 @@
 
 html {
     margin: 0;
-    /* background-color: aliceblue; */
+    /* background-color: black; */
 }
 
 
@@ -42,8 +42,17 @@ a, .btn {
 }
 
 .btn {
-    background-color: #ffffff;
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+    border: 0px;
+    background-color: #3BC242;
+    font-weight: bold;
+    color: #1A00C4;
+    border-radius: 4px;
 }
+
+
 
 /* ******HELPERS********** */
 
@@ -96,7 +105,7 @@ a, .btn {
 .header {
     /* background-color: #ffffff; */
     height: 130px;  
-    border-bottom: 1px solid #1A00C4;
+    border-bottom: 1px solid #3BC242; 
     justify-content: space-between;
 }
 
@@ -144,3 +153,46 @@ a:visited {
     font-weight: bold;
 }
 
+/*****KEEPER-APP-CMP*****/
+
+.radio-btns-container {
+
+}
+
+.add-container {
+    margin-bottom: 30px;
+}
+
+.btn-radio {
+    width: 70px;
+    height: 30px;
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.notes-list {
+    align-items: flex-start;
+}
+
+.note {
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/****preview-note-cmp*****/
+
+.title {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.note-img {
+    width: 90%;
+    align-self: center;
+
+}

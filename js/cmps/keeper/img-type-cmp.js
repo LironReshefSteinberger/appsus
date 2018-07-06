@@ -5,8 +5,8 @@ import keeperService from '../../services/keeper-service.js'
 export default {
     props: ['note'],
     template: `<section v-if="note">
-                    <h1>This it img!! cmp, note type is {{note.type}}</h1>
-                    <img :src="note.data.url"/>
+                    <!-- <h1>This it img!! cmp, note type is {{note.type}}</h1> -->
+                    <img class="note-img" :src="note.data.url"/>
                 </section>
                 `,
     created() {

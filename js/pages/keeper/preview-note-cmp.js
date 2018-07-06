@@ -11,7 +11,7 @@ export default {
                     <h2>preview note cmp</h2>
                     <h2 class="title">{{note.title}}</h2>
                     <component :is="note.type" :note="note" :key="note.id"> </component>
-                        <router-link tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
+                        <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
                         <button class="btn btn-delete">Delete</button>                   
                 </section>`,
     data() {
@@ -19,15 +19,30 @@ export default {
             note: null,
         }
     },
+    // created() {
+    //     // debugger;
+    //     console.log('$route.', this.$route.params.noteId);
+    //     keeperService.getNoteById(this.$route.params.noteId)
+    //         .then(note => {
+    //             this.note = note;
+    //             console.log('note in preview', this.note);
+    //             // console.log('note in preview', this.note.type);
+    //         })
+    // },
+
     created() {
-        console.log('$route.', this.$route.params.noteId);
-        keeperService.getNoteById(this.$route.params.noteId)
+        console.log('this.$route.params', this.$route.params);
+        const {noteId} = this.$route.params;
+        if (noteId) {
+            keeperService.getNoteById(noteId)
             .then(note => {
                 this.note = note;
                 console.log('note in preview', this.note);
-                console.log('note in preview', this.note.type);
-            })
-    },
+                // console.log('note in preview', this.note.type);
+                })
+            }
+},
+
     components: {
         imgType,
         txtType,

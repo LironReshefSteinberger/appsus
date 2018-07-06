@@ -17,9 +17,10 @@ const routes = [
     },
     {path: '/email-app/:emailId', component: emailApp},
     {path: '/keeper-app', component: keeperApp},
-    // { path: '/keeper-app/edit/:bookId?', component: bookEdit },
-    { path: '/keeper-app/:noteId', component: previewNote },
-    { path: '/keeper-app/edit/:noteId', component: editNote },
+    //IT couses a bug- why??
+   // { path: '/keeper-app/:noteId', component: previewNote },
+    // the '?' is for if it is edit or add - both use edit page
+    { path: '/keeper-app/edit/:noteId?', component: editNote },
   ];
 
 

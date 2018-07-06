@@ -4,7 +4,10 @@ import keeperService from '../../services/keeper-service.js'
 import eventBus, {SAVE_NOTE_MSG} from '../../services/event-bus-service.js'
 
 export default {
-    template: `<section v-if="note">
+    props:['type'],
+    template: `<section>EDIT/ADD CMP
+        <div>{{selectedType}} props in edit</div>
+                <section v-if="note">
                     <input ref="updatedInput" type="text" v-model="note.title">
                     <div> let's edit</div>
                     <!-- if there is txt => true -->
@@ -15,9 +18,14 @@ export default {
                     <!-- TODO:if there is url => true -->
 
                     <!-- TODO:if there is todos => true -->
-
-                    <button @click="saveNote">Save</button>
+                    <button  class="btn btn-color">
+                            <input type="color" id="colorValue" name="color" value="#ffffff" @change="note.bgColor = $event.target.value"/>
+                            <label for="colorValue"></label>
+                    </button>
+                    <button class="btn btn-save" @click="saveNote">Save</button>
+                    <button class="btn btn-cancel-edit" @click="cancelEditNote">Cancel</button>
                     <!-- <button ref="myBtn" @click="saveNote">Save</button> -->
+                </section>
                 </section>
                 `,
     data() {
@@ -27,6 +35,7 @@ export default {
             txt: null,
             todos: null,
             editedNote: keeperService.createEmptyNote(),
+            selectedType: null,
             // newTitle: null,
             // newTxt: null,
             // newUrl: null,
@@ -34,21 +43,48 @@ export default {
         }
     },
     created() {
-        keeperService.getNoteById(this.$route.params.noteId)
+        // this.selectedType = this.type;
+        // console.log('selectedType in edit', this.selectedType);
+        // console.log('selectedType', type);
+    //     keeperService.getNoteById(this.$route.params.noteId)
+    //     .then(note => {
+    //         // to edit a copy of the obj, so if we want to cancel edit
+    //         this.note =  JSON.parse(JSON.stringify(note));
+    //         this.url = this.note.data.url;
+    //         this.txt = this.note.data.txt;
+    //         this.todos - this.note.data.todos;
+    //         // console.log('note in edit', this.note);
+    //         // console.log('note in edit', this.note.type);
+    //     })
+    // },
+    console.log('this.$route.params in edit', this.$route);
+    console.log('this.$route.params in edit', this.$route.params);
+    const {noteId} = this.$route.params;
+    
+    if (noteId) {
+        keeperService.getNoteById(noteId)
         .then(note => {
             // to edit a copy of the obj, so if we want to cancel edit
             this.note =  JSON.parse(JSON.stringify(note));
             this.url = this.note.data.url;
             this.txt = this.note.data.txt;
-            this.todos - this.note.data.todos;
+            this.todos = this.note.data.todos;
             // console.log('note in edit', this.note);
             // console.log('note in edit', this.note.type);
-        })
-    },
-    // mounted() {
+            })
+            
+    } 
+    // console.log('this.editedNote', this.editedNote);
+    // else {
+
+    // }
+},
+    mounted() {
+        this.selectedType = this.type;
+        console.log('selectedType in edit', this.selectedType);
     //     // console.log('this.$refs', this.$refs);
     //     console.log('updatedInput mounted', this.$refs.updatedInput);
-    // },
+    },
     methods: {
         saveNote() {
             //TODO: for img and todos also
@@ -57,6 +93,7 @@ export default {
             this.editedNote.id = this.note.id;
             this.editedNote.type = this.note.type;
             this.editedNote.title = this.note.title;
+            this.editedNote.bgColor = this.note.bgColor;
 
             // console.log('changeTitle', this.note.title);
             if (this.note.type === 'txtType') this.editedNote.data.txt = this.note.data.txt;
@@ -73,6 +110,21 @@ export default {
             //TODO: for todos
 
         },
+        cancelEditNote() {
+            this.$router.push(`/keeper-app`)
+        },
+    },
+    // watch : {
+    //     show() {
+    //         console.log('Show Changed!');
+    //     },
+    // }
+}
+
+
+
+
+   
         // changeTitle () {
         //     console.log('changeTitle', this.note.title);
         //     this.newTitle = this.note.title;
@@ -84,10 +136,3 @@ export default {
         //     this.newTxt = this.note.data.txt;
         //     // console.log('newTitle', this.newTxt);
         // }
-    },
-    // watch : {
-    //     show() {
-    //         console.log('Show Changed!');
-    //     },
-    // }
-}
