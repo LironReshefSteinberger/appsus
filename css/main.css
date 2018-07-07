@@ -2,31 +2,19 @@
     box-sizing: border-box;
 }
 
-/* Font Face */
-
-@font-face {
-    font-family: Lato-regular;
-    src: url('../fonts/Lato/OpenSans-Regular.ttf');
-}
-
-@font-face {
-    font-family: Shrikhand-regular;
-    src: url('../fonts/Shrikhand/Shrikhand-Regular.ttf');
-}
-/* font-family: 'Shrikhand', cursive; */
-
 html {
     margin: 0;
     /* background-color: black; */
 }
 
-
 body {
     margin: 0;
+    
 }
 
 div, h1, h2, h3, p, li {
     margin: 0;
+    font-family: Noto-Sans-regular;
 }
 
 a {
@@ -52,6 +40,51 @@ a, .btn {
     border-radius: 4px;
 }
 
+/* Font Face */
+
+@font-face {
+    font-family: Lato-regular;
+    src: url('../fonts/Lato/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: Shrikhand-regular;
+    src: url('../fonts/Shrikhand/Shrikhand-Regular.ttf');
+}
+
+@font-face {
+    font-family: Kaushan-regular;
+    src: url('../fonts/Kaushan_Script/KaushanScript-Regular.ttf');
+}
+
+@font-face {
+    font-family: Monda-regular;
+    src: url('../fonts/Monda/Monda-Regular.ttf');
+}
+
+@font-face {
+    font-family: Eagle-Lake-regular;
+    src: url('../fonts/Eagle_Lake/EagleLake-Regular.ttf');
+}
+
+@font-face {
+    font-family: Prompt-regular;
+    src: url('../fonts/Prompt/Prompt-Medium.ttf');
+}
+
+@font-face {
+    font-family: Noto-Sans-regular;
+    src: url('../fonts/Noto_Sans/NotoSans-Regular.ttf');
+}
+
+/* font-family: 'Shrikhand', cursive; */
+/* font-family: 'Kanit', sans-serif;
+font-family: 'Prompt', sans-serif;
+font-family: 'Monda', sans-serif;
+font-family: 'Eagle Lake', cursive;
+font-family: 'Noto Sans', sans-serif; */
+
+/* font-family: 'Kaushan Script', cursive; */
 
 
 /* ******HELPERS********** */
@@ -102,11 +135,17 @@ a, .btn {
     flex-direction: column;
 }
 
+/********GENERAL********/
+h2 {
+    font-size: 1.2rem;
+}
+
 .header {
     /* background-color: #ffffff; */
     height: 130px;  
     border-bottom: 1px solid #3BC242; 
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 /* .header h1 {
@@ -167,27 +206,57 @@ a:visited {
 
 .email-icon h2, .keeper-icon h2 {
     margin: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Kaushan Script', cursive;
     font-size: 3rem;
     color: #3BC242;
 }
 
 /*****KEEPER-APP-CMP*****/
 
-.radio-btns-container {
-
-}
-
 .add-container {
     margin-bottom: 30px;
 }
 
-.btn-radio {
+/* .btn-radio {
     width: 70px;
     height: 30px;
     padding: 50px;
     margin-bottom: 20px;
+} */
+
+
+
+/******NOTE-FILTER-CMP******   &&&&& *************ADD-NOTE-CMP*********/
+
+.note-filter, .add-container {
+    margin-bottom: 20px;
+    /* border: 1px solid rgb(240, 237, 237);
+    border-radius: 2px; */
 }
+
+.note-filter i, .note-filter input, .add-container h2, .add-container select {
+    margin: 0 10px;
+}
+
+.note-filter input, .add-container select {
+    width: 200px;
+    height: 30px;
+}
+
+
+/************NOTE-LIST-CMP***********/
+
+.note h2 {
+    font-size: 1.5rem;
+}
+
+.note-title {
+    border-bottom: 1px solid #9f9e9e;
+    padding: 20px;
+    background-color: white;
+
+}
+
 
 .notes-list {
     align-items: flex-start;
@@ -195,23 +264,58 @@ a:visited {
 
 .note {
     width: 250px;
-    border: 1px solid black;
+    border: 1px solid rgb(173, 173, 173);
     border-radius: 4px;
     margin: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0px 1px 4px rgb(75, 73, 73);
 }
 
 
-/****preview-note-cmp*****/
+/***********TXT-TYPE-CMP*************/
 
-.title {
-    padding: 20px;
-    margin-bottom: 20px;
+.txt-type {
+    font-size: 1.2rem;
+    padding: 10px;
+    color: black;
 }
 
 
+/***********IMG-TYPE-CMP*************/
 .note-img {
     width: 90%;
     align-self: center;
 
+}
+
+.img-type {
+    align-self: center;
+}
+
+/***********TODOS-TYPE-CMP*************/
+
+.todos-list {
+    justify-content: center;
+
+}
+
+.todo {
+    padding: 10px;
+    color: black;
+}
+
+.btn-edit-todo, .btn-delete-todo {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(252, 243, 243);
+    margin: 5px;
+    /* justify-self: end; */
+}
+
+.btn.btn-delete-todo {
+    color: red;
+}
+
+.btns-todo-container {
+    align-self: flex-end;
 }

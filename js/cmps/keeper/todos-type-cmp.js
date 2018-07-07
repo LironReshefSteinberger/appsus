@@ -6,17 +6,18 @@ export default {
     props: ['note'],
     template: `<section v-if="note">
                     <!-- <h1>This is txt cmp, note type is {{note.type}}</h1> -->
-                    <ul class="notes-list clean-list flex flex-wrap">
-                    <li class="note flex column align-center space-between" v-for="(todo, idx) in todos" :key="idx">
+                    <ul class="todos-list clean-list flex flex-wrap space-between">
+                    <li class="todo flex align-center" v-for="(todo, idx) in todos" :key="idx">
                         {{todo}}
-                        <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
-                        <button class="btn btn-delete" @click="removeTodo(note.id, idx)">X</button> 
-
-                        </li>
+                        <div class="btns-todo-container flex">
+                            <router-link class="btn btn-edit-todo" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
+                            <button class="btn btn-delete-todo" @click="removeTodo(note.id, idx)">X</button> 
+                        </div>
+                    </li>
                     <!-- <button class="btn btn-edit" @click="editNote">Edit</button>
                     <button class="btn btn-delete">Delete</button> -->
-                    <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
-                        <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button> 
+                    <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
+                        <button class="btn btn-delete-note" @click="removeNote"><i class="fa fa-trash"></i></button> 
                     </ul>
                 </section>
                 `,
@@ -27,7 +28,7 @@ export default {
         }
     },
     created() {
-        console.log('note.data.todos ',this.note.data.todos);
+        // console.log('note.data.todos ',this.note.data.todos);
     },
     methods: {
         removeNote() {

@@ -7,7 +7,9 @@ import addImgType from '../../cmps/keeper/add-img-type-cmp.js'
 
 export default {
     template:`
-            <section class="add-container">
+            <section class="add-container flex">
+                <h2>Take a note</h2>
+                <!-- <h2>&amp; select type </h2> -->
             <!-- <section class="add-container" v-if="selectedType"> -->
             <!-- <router-link class="add" tag="button" to="/keeper-app/edit">Add new note -->
             <!-- <edit-note :type="selectedType"></edit-note> -->

@@ -11,7 +11,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'imgType',
         title: 'The 1 image',
-        bgColor: 'lightblue',
+        bgColor: '#e0f1ff',
         data: {
             url: 'img/keeper/1-keeper.png',
         }
@@ -20,7 +20,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'todosType',
         title: 'Notes list',
-         bgColor: 'lightpink',
+        bgColor: '#ffe8cb',
         data: {
             todos: ['shopping', 'studing'],
         }
@@ -29,7 +29,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'txtType',
         title: 'Texts line',
-        bgColor: 'bisque',
+        bgColor: '#f0feea',
         data: {
             txt: 'Lorem ipsum is placeholder text commonly used in'
         }
@@ -38,7 +38,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'imgType',
         title: 'Second image',
-        bgColor: 'rgb(237, 205, 247)',
+        bgColor: '#e0f1ff',
         data: {
             url: 'img/keeper/2-keeper.png',
         }
@@ -47,7 +47,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'todosType',
         title: 'Notes list #2',
-         bgColor: 'lightpink',
+        bgColor: '#ffe8cb',
         data: {
             todos: ['eating', 'watching TV'],
         }
@@ -56,16 +56,16 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'txtType',
         title: '#3 txt type',
-        bgColor: 'bisque',
+        bgColor: '#f0feea',
         data: {
-            txt: 'second txt type placeholder text commonly used in'
+            txt: 'Second txt type placeholder text commonly used in'
         }
     },
     {
         id: utilService.makeId(),
         type: 'imgType',
         title: 'The best image',
-        bgColor: 'lightblue',
+        bgColor: '#e0f1ff',
         data: {
             url: 'img/keeper/3-keeper.png',
         }
@@ -74,7 +74,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'todosType',
         title: 'Notes list',
-         bgColor: 'lightpink',
+        bgColor: '#ffe8cb',
         data: {
             todos: ['shopping', 'studing'],
         }
@@ -83,7 +83,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'txtType',
         title: 'Texts line',
-        bgColor: 'bisque',
+        bgColor: '#f0feea',
         data: {
             txt: 'Lorem ipsum is placeholder text commonly used in'
         }
@@ -92,7 +92,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'imgType',
         title: '#4 image',
-        bgColor: 'rgb(237, 205, 247)',
+        bgColor: '#e0f1ff',
         data: {
             url: 'img/keeper/4-keeper.png',
         }
@@ -101,7 +101,7 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'todosType',
         title: 'Notes list #2',
-         bgColor: 'lightpink',
+        bgColor: '#ffe8cb',
         data: {
             todos: ['eating', 'watching TV'],
         }
@@ -110,9 +110,9 @@ var defaultNotes = [
         id: utilService.makeId(),
         type: 'txtType',
         title: 'Second txt type',
-        bgColor: 'bisque',
+        bgColor: '#f0feea',
         data: {
-            txt: 'second txt type placeholder text commonly used in'
+            txt: 'Third txt type placeholder text commonly used in'
         }
     }
 ];
@@ -123,7 +123,7 @@ function createEmptyNote() {
         id: utilService.makeId(),
         type: '',
         title: '',
-        bgColor: 'grey',
+        bgColor: '#f3f3f2',
         data: {}
     }
 }
@@ -146,7 +146,7 @@ createNotes();
 
 
 function createNotes() {
-  notes = utilService.loadFromStorage(NOTES_KEY);
+//   notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || notes.length === 0) {
     notes = defaultNotes;
   }

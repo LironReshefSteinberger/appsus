@@ -6,7 +6,7 @@ export default {
     props: ['note'],
     template: `<section v-if="note">
                     <!-- <h1>This is txt cmp, note type is {{note.type}}</h1> -->
-                    <div>{{note.data.txt}}
+                    <div class="txt-type">{{note.data.txt}}
 
                     <!-- <button class="btn btn-edit" @click="editNote">Edit</button>
                     <button class="btn btn-delete">Delete</button> -->
