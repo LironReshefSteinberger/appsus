@@ -31,9 +31,10 @@ export default {
     // },
 
     created() {
+        console.log('this.$route.params', this.$route);
         console.log('this.$route.params', this.$route.params);
         const {noteId} = this.$route.params;
-        if (noteId) {
+        if (noteId && noteId !=='edit') {
             keeperService.getNoteById(noteId)
             .then(note => {
                 this.note = note;
