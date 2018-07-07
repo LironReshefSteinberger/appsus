@@ -1,7 +1,7 @@
 console.log('add-note-cmp');
 
-import imgType from '../../cmps/keeper/img-type-cmp.js'
-import txtType from '../../cmps/keeper/txt-type-cmp.js'
+// import addImgType from '../../cmps/keeper/
+import addTxtType from '../../cmps/keeper/add-txt-type-cmp.js'
 
 export default {
     template:`
@@ -26,7 +26,7 @@ export default {
                 </select>
             
                     <component :is="selectedType" v-if="selectedType">
-                        {{selectedType}}dfsdfds
+                        {{selectedType}}
 
                     </component>
 
@@ -41,8 +41,7 @@ export default {
         }
     },
     components: {
-        imgType,
-        txtType,
+        addTxtType,
     },
     methods: {
         selectedTxtType() {

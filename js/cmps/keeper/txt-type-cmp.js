@@ -4,7 +4,7 @@ import keeperService from '../../services/keeper-service.js'
 
 export default {
     props: ['note'],
-    template: `<section>
+    template: `<section v-if="note">
                     <h1>This is txt cmp, note type is {{note.type}}</h1>
                     <div>{{note.data.txt}}
                     <!-- <button class="btn btn-edit" @click="editNote">Edit</button>

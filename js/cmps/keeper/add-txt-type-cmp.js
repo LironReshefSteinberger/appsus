@@ -4,7 +4,7 @@ import keeperService from '../../services/keeper-service.js'
 
 export default {
     props: ['selectedType'],
-    template: `<section>
+    template: `<section v-if="selectedType">
                     <h1>This is ADD txt cmp</h1>
                     <div>
                     <!-- <button class="btn btn-edit" @click="editNote">Edit</button>
