@@ -143,6 +143,8 @@ function createEmptyNote() {
 createNotes();
 
 
+
+
 function createNotes() {
   notes = utilService.loadFromStorage(NOTES_KEY);
   if (!notes || notes.length === 0) {
@@ -185,11 +187,23 @@ function saveNote(note) {
     
 }
 
+function removeNote(id) {
+	// return Promise.resolve();
+	return new Promise((resolve, reject)=>{
+		setTimeout(() => {
+			var noteIdx = notes.findIndex(note => note.id === id)
+			notes.splice(noteIdx, 1);
+			resolve()
+		}, 1000);
+	});
+	// return Promise.reject();
+}
+
+
 export default {
     query,
     getNoteById,
     createEmptyNote,
-    saveNote
-
-
+    saveNote,
+    removeNote
 }

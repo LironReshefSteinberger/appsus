@@ -5,6 +5,7 @@ import eventBus, {SAVE_NOTE_MSG} from '../../services/event-bus-service.js'
 
 export default {
     props:['type'],
+    // props:['type', 'note'],
     template: `<section>EDIT/ADD CMP
         <div>{{selectedType}} props in edit</div>
                 <section v-if="note">
@@ -105,7 +106,9 @@ export default {
                     eventBus.$emit(SAVE_NOTE_MSG, 'Your note was saved!')
                     this.$router.push(`/keeper-app/${savedNote.id}`)
                 })
-
+            
+            //restart editedNote 
+            this.editedNote = keeperService.createEmptyNote();
             // console.log('this.editedNote.data.txt', this.editedNote.data.txt);
             //TODO: for todos
 

@@ -23,8 +23,8 @@ export default {
                         <router-link :to="'/keeper-app/'+note.id">
                             <component :is="note.type" :note="note"></component>
                         </router-link>
-                        <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
-                        <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button> 
+                        <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link> -->
+                        <!-- <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
                     </li>
                 </ul>
 
@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             notes: null,  
-            deleteLabel : 'Delete',
+            // deleteLabel : 'Delete',
             bgColor:null,
  
         }
@@ -48,14 +48,14 @@ export default {
     methods: {
 
         removeNote() {
-            // this.deleteLabel ='Deleting...';
-            // console.log('$route.', this.$route.params.noteId);
-            // keeperService.removeNote(this.$route.params.noteId)
-            //     .then(note => {
-            //         this.note = note;
-            //         console.log('note in edit-delete ', this.note);
-            //         // console.log('note in edit-delete', this.note.type);
-            //     })
+        //     this.deleteLabel ='Deleting...';
+        //     console.log('$route.', this.$route.params.noteId);
+        //     keeperService.removeNote(this.$route.params.noteId)
+        //         .then(note => {
+        //             this.note = note;
+        //             console.log('note in edit-delete ', this.note);
+        //             // console.log('note in edit-delete', this.note.type);
+        //         })
         }
     },
     components: {

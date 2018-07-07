@@ -3,6 +3,7 @@ console.log('add-note-cmp');
 // import addImgType from '../../cmps/keeper/
 import addTxtType from '../../cmps/keeper/add-txt-type-cmp.js'
 
+
 export default {
     template:`
             <section class="add-container">
@@ -18,14 +19,13 @@ export default {
                 <!-- </div> -->
 
                 <select class="radio-btns-container flex" v-model="selectedType">
-                    <option class="btn btn-txt-selected" value="txtType">Text</option>
-                    <option class="btn btn-img-selected" value="imgType">Image</option>
-                    <option class="btn btn-todos-selected" value="todosType">Todos</option>
-                    <!-- <book-preview :book="book"></book-preview> -->
+                    <option class="btn btn-txt-selected" value="addTxtType">Text</option>
+                    <option class="btn btn-img-selected" value="addImgType">Image</option>
+                    <option class="btn btn-todos-selected" value="addTodosType">Todos</option>
                     <!-- <component :is="selectedType" v-if="note"> -->
                 </select>
             
-                    <component :is="selectedType" v-if="selectedType">
+                    <component :is="selectedType" v-if="selectedType" :type="selectedType">
                         {{selectedType}}
 
                     </component>
