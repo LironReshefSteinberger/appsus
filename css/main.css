@@ -153,6 +153,25 @@ a:visited {
     font-weight: bold;
 }
 
+/*******HOME************/
+
+.email-keeper-icons {
+    text-align: center;
+    justify-content: center;
+}
+
+.email-icon, .keeper-icon {
+    margin: 20px 80px;
+
+}
+
+.email-icon h2, .keeper-icon h2 {
+    margin: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+    color: #3BC242;
+}
+
 /*****KEEPER-APP-CMP*****/
 
 .radio-btns-container {
