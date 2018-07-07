@@ -2,6 +2,7 @@ console.log('add-note-cmp');
 
 // import addImgType from '../../cmps/keeper/
 import addTxtType from '../../cmps/keeper/add-txt-type-cmp.js'
+import addImgType from '../../cmps/keeper/add-img-type-cmp.js'
 
 
 export default {
@@ -42,6 +43,7 @@ export default {
     },
     components: {
         addTxtType,
+        addImgType
     },
     methods: {
         selectedTxtType() {

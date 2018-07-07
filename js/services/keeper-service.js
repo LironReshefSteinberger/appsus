@@ -16,15 +16,15 @@ var defaultNotes = [
             url: 'img/keeper/1-keeper.png',
         }
     },
-    // {
-    //     id: utilService.makeId(),
-    //     type: 'todosType',
-    //     title: 'Notes list',
-    //      bgColor: 'lightpink',
-    //     data: {
-    //         todo: ['shopping', 'studing'],
-    //     }
-    // },
+    {
+        id: utilService.makeId(),
+        type: 'todosType',
+        title: 'Notes list',
+         bgColor: 'lightpink',
+        data: {
+            todos: ['shopping', 'studing'],
+        }
+    },
     {
         id: utilService.makeId(),
         type: 'txtType',
@@ -43,15 +43,15 @@ var defaultNotes = [
             url: 'img/keeper/2-keeper.png',
         }
     },
-    // {
-    //     id: utilService.makeId(),
-    //     type: 'todosType',
-    //     title: 'Notes list #2',
-    //      bgColor: 'lightpink',
-    //     data: {
-    //         todo: ['eating', 'watching TV'],
-    //     }
-    // },
+    {
+        id: utilService.makeId(),
+        type: 'todosType',
+        title: 'Notes list #2',
+         bgColor: 'lightpink',
+        data: {
+            todos: ['eating', 'watching TV'],
+        }
+    },
     {
         id: utilService.makeId(),
         type: 'txtType',
@@ -70,15 +70,15 @@ var defaultNotes = [
             url: 'img/keeper/3-keeper.png',
         }
     },
-    // {
-    //     id: utilService.makeId(),
-    //     type: 'todosType',
-    //     title: 'Notes list',
-    //      bgColor: 'lightpink',
-    //     data: {
-    //         todo: ['shopping', 'studing'],
-    //     }
-    // },
+    {
+        id: utilService.makeId(),
+        type: 'todosType',
+        title: 'Notes list',
+         bgColor: 'lightpink',
+        data: {
+            todos: ['shopping', 'studing'],
+        }
+    },
     {
         id: utilService.makeId(),
         type: 'txtType',
@@ -97,15 +97,15 @@ var defaultNotes = [
             url: 'img/keeper/4-keeper.png',
         }
     },
-    // {
-    //     id: utilService.makeId(),
-    //     type: 'todosType',
-    //     title: 'Notes list #2',
-    //      bgColor: 'lightpink',
-    //     data: {
-    //         todo: ['eating', 'watching TV'],
-    //     }
-    // },
+    {
+        id: utilService.makeId(),
+        type: 'todosType',
+        title: 'Notes list #2',
+         bgColor: 'lightpink',
+        data: {
+            todos: ['eating', 'watching TV'],
+        }
+    },
     {
         id: utilService.makeId(),
         type: 'txtType',
@@ -193,10 +193,40 @@ function removeNote(id) {
 		setTimeout(() => {
 			var noteIdx = notes.findIndex(note => note.id === id)
 			notes.splice(noteIdx, 1);
+            console.log('notes after remove' ,notes )
+            utilService.saveToStorage(NOTES_KEY, notes);
 			resolve()
 		}, 1000);
 	});
-	// return Promise.reject();
+    // return Promise.reject();
+}
+
+function removeTodo(noteId, todoIdx) {
+	// return Promise.resolve();
+	return new Promise((resolve, reject)=>{
+		setTimeout(() => {
+            var noteIdx = notes.findIndex(note => note.id === noteId)
+            var currTodos = notes[noteIdx].data.todos;
+            currTodos.splice(todoIdx, 1)
+            // console.log('notes[noteIdx].data.todos' ,notes[noteIdx].data.todos )
+            // notes[noteIdx].data.todos[todoIdx]
+            // console.log('notes after remove' ,notes )
+            utilService.saveToStorage(NOTES_KEY, notes);
+			resolve()
+		}, 1000);
+	});
+    // return Promise.reject();
+}
+
+function pinNote(noteId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+			var noteIdx = notes.findIndex(note => note.id === noteId)
+            notes.splice(0, 0, notes.splice(noteIdx, 1)[0]);
+            utilService.saveToStorage(NOTES_KEY, notes);
+			resolve()
+		}, 1000);
+	});
 }
 
 
@@ -205,5 +235,7 @@ export default {
     getNoteById,
     createEmptyNote,
     saveNote,
-    removeNote
+    removeNote,
+    removeTodo,
+    pinNote
 }

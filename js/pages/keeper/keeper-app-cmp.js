@@ -3,6 +3,8 @@
 import keeperService from '../../services/keeper-service.js'
 import imgType from '../../cmps/keeper/img-type-cmp.js'
 import txtType from '../../cmps/keeper/txt-type-cmp.js'
+import todosType from '../../cmps/keeper/todos-type-cmp.js'
+
 import addNote from '../../cmps/keeper/add-note-cmp.js'
 // import previewNote from '../../pages/keeper/preview-note-cmp.js'
 import editNote from '../keeper/edit-note-cmp.js'
@@ -25,6 +27,7 @@ export default {
                         </router-link>
                         <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link> -->
                         <!-- <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
+                        <button class="btn btn-pin" @click="pinNote(note.id)">Pin note</button>
                     </li>
                 </ul>
 
@@ -56,11 +59,19 @@ export default {
         //             console.log('note in edit-delete ', this.note);
         //             // console.log('note in edit-delete', this.note.type);
         //         })
+        },
+        pinNote(noteId) {
+            keeperService.pinNote(noteId)
+                .then(() => {
+                    console.log('note was pinned ');
+                    // console.log('note in edit-delete', this.note.type);
+                })
         }
     },
     components: {
         imgType,
         txtType,
+        todosType,
         addNote,
         // previewNote,
         editNote

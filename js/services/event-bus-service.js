@@ -1,4 +1,4 @@
-console.log('event bus');
+// console.log('event bus');
 
 export const SAVE_NOTE_MSG = 'SAVE_NOTE_MSG';
 // export const MSG_HAPPY_HOUR = 'happy-hour';

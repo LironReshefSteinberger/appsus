@@ -4,8 +4,7 @@ import keeperService from '../../services/keeper-service.js'
 import eventBus, {SAVE_NOTE_MSG} from '../../services/event-bus-service.js'
 
 export default {
-    props:['type'],
-    // props:['type', 'note'],
+    props:['type', 'note'],
     template: `<section>EDIT/ADD CMP
         <div>{{selectedType}} props in edit</div>
                 <section v-if="note">
@@ -31,7 +30,7 @@ export default {
                 `,
     data() {
         return {
-            note: null,
+            // note: null,
             url: null,
             txt: null,
             todos: null,
