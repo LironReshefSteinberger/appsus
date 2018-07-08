@@ -9,18 +9,25 @@ import addtodosType from '../../cmps/keeper/add-todos-type-cmp.js'
 
 export default {
     props:['type'],
-    template: `<section v-if="note">EDIT/ADD CMP
-                    <div>{{selectedType}} props in edit</div>
-                    <section v-if="note">
-                        <input ref="updatedInput" type="text" v-model="note.title">
-                        <!-- <div> let's edit</div> -->
-                        <component :is="'add'+selectedType" v-if="selectedType" :note="note"></component>
-                        <button  class="btn btn-color">
-                            <input type="color" id="colorValue" name="color" value="#ffffff" @change="note.bgColor = $event.target.value"/>
-                            <label for="colorValue"></label>
-                        </button>
-                        <button class="btn btn-save" @click="saveNote">Save</button>
-                        <button class="btn btn-cancel-edit" @click="cancelEditNote">Cancel</button>
+    template: `<section v-if="note" class="edit-note">
+
+                    <div class="edit-container flex align-center column">
+                        
+                        <h2>Edit note</h2>
+                        <section v-if="note">
+                            <h3>Title:</h3>
+                            <input class="title" ref="updatedInput" type="text" v-model="note.title">
+                            <!-- <div> let's edit</div> -->
+                            <component :is="'add'+selectedType" v-if="selectedType" :note="note"></component>
+                            <div class="edit-note-btns-container flex align-center">
+                                <button  class="btn edit-note-btn btn-color">
+                                    <input type="color" id="colorValue" name="color" value="#ffffff" @change="note.bgColor = $event.target.value"/>
+                                    <label for="colorValue"></label>
+                                </button>
+                                <button class="btn edit-note-btn btn-save" @click="saveNote">Save</button>
+                                <button class="btn edit-note-btn btn-cancel-edit" @click="cancelEditNote">Cancel</button>
+                            </div>
+                        </div>
                     </section>
                 </section>
                 `,

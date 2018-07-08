@@ -8,7 +8,7 @@ export default {
                         <!-- <h1>This is ADD todos cmp</h1> -->
                         <ul class="todos-list clean-list flex flex-wrap space-between">
                             <li class="todo flex align-center" v-for="(todo, idx) in todos" :key="idx">
-                                <input v-model="todo" @input="updateTodo($event,idx)"></input>
+                                <input :value="todo" @input="updateTodo($event,idx)"></input>
                                 <!-- <input v-model="todo" v-if="ifNewtodosNote" @input="updateTodo($event,idx)"></input> -->
                             </li>
                         </ul>
