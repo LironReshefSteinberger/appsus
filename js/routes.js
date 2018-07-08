@@ -17,7 +17,7 @@ const routes = [
   //  { path: '/keeper-app/:noteId', component: previewNote },
     // the '?' is for if it is edit or add - both use edit page
     { path: '/keeper-app/edit/:noteId?', component: editNote },
-    // { path: '/keeper-app/edit/:type/:noteId?', component: editNote },
+    { path: '/keeper-app/add/:type', component: editNote , props: true},
   ];
 
 

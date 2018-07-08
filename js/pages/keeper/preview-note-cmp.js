@@ -3,7 +3,6 @@ import keeperService from '../../services/keeper-service.js'
 import imgType from '../../cmps/keeper/img-type-cmp.js'
 import txtType from '../../cmps/keeper/txt-type-cmp.js'
 import editTxtType from '../../pages/keeper/edit-note-cmp.js'
-// import eventBus, {USR_MSG_DISPLAY} from '../services/event-bus.service.js'
 
 export default {
     template: `
@@ -19,16 +18,6 @@ export default {
             note: null,
         }
     },
-    // created() {
-    //     // debugger;
-    //     console.log('$route.', this.$route.params.noteId);
-    //     keeperService.getNoteById(this.$route.params.noteId)
-    //         .then(note => {
-    //             this.note = note;
-    //             console.log('note in preview', this.note);
-    //             // console.log('note in preview', this.note.type);
-    //         })
-    // },
 
     created() {
         console.log('this.$route.params', this.$route);
