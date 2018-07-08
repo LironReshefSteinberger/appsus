@@ -1,42 +1,128 @@
 // console.log('keeper-cmp');
 
 import keeperService from '../../services/keeper-service.js'
-import imgType from '../../cmps/keeper/img-type-cmp.js'
-import txtType from '../../cmps/keeper/txt-type-cmp.js'
-// import addNote from '../cmps/keeper/add-note-cmp.js'
-import editNote from '../../cmps/keeper/edit-note-cmp.js'
+import noteFilter from '../../cmps/keeper/note-filter-cmp.js'
+import noteList from '../../cmps/keeper/note-list-cmp.js'
 
 export default {
-    template: `
-            <section>
-                <div>KEEPER COMP</div>
-                <ul class="notes-list clean-list" v-if="notes">
-                    <li v-for="(note, idx) in notes" :key="note.id">
-                        <!-- {{note.id}} -->
-                        <!-- {{note.type}} -->
-                        <router-link :to="'/keeper-app/edit/'+note.id">
-                            <component :is="note.type" :note="note"></component>
-                        </router-link>
-                    </li>
-                </ul>
-            </section>
-            `,
+	template: `
+		<section class="keeper-app">
+			<note-filter @filtered="setFilter"></note-filter>
+			<note-list :notes="notesToShow"></note-list>
+		</section>
+	`,
+	components: {
+		keeperService,
+        noteFilter,
+        noteList
+	},
+   
     data() {
         return {
-            notes: null,   
+            notes: null,
+            filter: null,
         }
     },
     created() {
         keeperService.query()
             .then(notes => {
-                console.log('Parent notes', notes);
+                // console.log('Parent notes', notes);
                 this.notes = notes;
             })
     },
-    components: {
-        imgType,
-        txtType,
-        // addNote,
-        editNote
-    }
+    methods: {
+        setFilter(filter) {
+            // console.log('Parent setFilter by name', filter);
+            this.filter = filter;
+            // console.log('Parent: this.filterByName', this.filter);
+        },
+    },
+
+    computed: {
+        notesToShow() {
+            if (!this.filter) return this.notes;
+            else return this.notes.filter(note =>
+                note.title.includes(this.filter.byName))
+		}
+	},
 }
+
+
+
+// import keeperService from '../../services/keeper-service.js'
+// import imgType from '../../cmps/keeper/img-type-cmp.js'
+// import txtType from '../../cmps/keeper/txt-type-cmp.js'
+// import todosType from '../../cmps/keeper/todos-type-cmp.js'
+
+// import addNote from '../../cmps/keeper/add-note-cmp.js'
+// // import previewNote from '../../pages/keeper/preview-note-cmp.js'
+// import editNote from '../keeper/edit-note-cmp.js'
+
+// export default {
+//     template: `
+//             <section>
+//                 <!-- <note-filter v-on:filtered="setFilter"></note-filter> 
+//                 <note-list :notes="booksToShow" ></book-list> -->
+//                 <!-- <div>KEEPER COMP</div> -->
+//                 <add-note></add-note>
+            
+//                 <ul class="notes-list clean-list flex flex-wrap" v-if="notes">
+//                     <li class="note flex column align-center space-between" v-for="(note, idx) in notes" :key="note.id" :style="{'background-color':note.bgColor}">
+//                         <!-- {{note.id}} -->
+//                         <!-- {{note.type}} -->
+//                         <h2 class="title">{{note.title}}</h2>
+//                         <router-link :to="'/keeper-app/'+note.id">
+//                             <component :is="note.type" :note="note"></component>
+//                         </router-link>
+//                         <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link> -->
+//                         <!-- <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
+//                         <button class="btn btn-pin" @click="pinNote(note.id)">Pin note</button>
+//                     </li>
+//                 </ul>
+
+//             </section>
+//             `,
+//     data() {
+//         return {
+//             notes: null,  
+//             // deleteLabel : 'Delete',
+//             bgColor:null,
+ 
+//         }
+//     },
+//     created() {
+//         keeperService.query()
+//             .then(notes => {
+//                 console.log('Parent notes', notes);
+//                 this.notes = notes;
+//             })
+//     },
+//     methods: {
+
+//         removeNote() {
+//         //     this.deleteLabel ='Deleting...';
+//         //     console.log('$route.', this.$route.params.noteId);
+//         //     keeperService.removeNote(this.$route.params.noteId)
+//         //         .then(note => {
+//         //             this.note = note;
+//         //             console.log('note in edit-delete ', this.note);
+//         //             // console.log('note in edit-delete', this.note.type);
+//         //         })
+//         },
+//         pinNote(noteId) {
+//             keeperService.pinNote(noteId)
+//                 .then(() => {
+//                     console.log('note was pinned ');
+//                     // console.log('note in edit-delete', this.note.type);
+//                 })
+//         }
+//     },
+//     components: {
+//         imgType,
+//         txtType,
+//         todosType,
+//         addNote,
+//         // previewNote,
+//         editNote
+//     }
+// }

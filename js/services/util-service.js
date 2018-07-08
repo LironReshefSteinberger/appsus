@@ -1,4 +1,4 @@
-console.log('utilservice');
+// console.log('utilservice');
 
 function saveToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value))

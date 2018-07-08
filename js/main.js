@@ -1,4 +1,4 @@
-console.log('main');
+// console.log('main');
 
 import appRouter from './routes.js'
 import navBar from './cmps/nav-bar-cmp.js'

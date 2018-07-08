@@ -2,36 +2,19 @@
     box-sizing: border-box;
 }
 
-/* Font Face */
-
-@font-face {
-    font-family: Lato-regular;
-    src: url('../fonts/Lato/OpenSans-Regular.ttf');
-}
-
-@font-face {
-    font-family: Shrikhand-regular;
-    src: url('../fonts/Shrikhand/Shrikhand-Regular.ttf');
-}
-/* font-family: 'Shrikhand', cursive; */
-
 html {
     margin: 0;
-    background-color: aliceblue;
+    /* background-color: black; */
 }
-
-.router-link-active {
-    color: orange;
-}
-
-
 
 body {
     margin: 0;
+    
 }
 
 div, h1, h2, h3, p, li {
     margin: 0;
+    font-family: Noto-Sans-regular;
 }
 
 a {
@@ -47,8 +30,62 @@ a, .btn {
 }
 
 .btn {
-    background-color: #ffffff;
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+    border: 0px;
+    background-color: #3BC242;
+    font-weight: bold;
+    color: #1A00C4;
+    border-radius: 4px;
 }
+
+/* Font Face */
+
+@font-face {
+    font-family: Lato-regular;
+    src: url('../fonts/Lato/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: Shrikhand-regular;
+    src: url('../fonts/Shrikhand/Shrikhand-Regular.ttf');
+}
+
+@font-face {
+    font-family: Kaushan-regular;
+    src: url('../fonts/Kaushan_Script/KaushanScript-Regular.ttf');
+}
+
+@font-face {
+    font-family: Monda-regular;
+    src: url('../fonts/Monda/Monda-Regular.ttf');
+}
+
+@font-face {
+    font-family: Eagle-Lake-regular;
+    src: url('../fonts/Eagle_Lake/EagleLake-Regular.ttf');
+}
+
+@font-face {
+    font-family: Prompt-regular;
+    src: url('../fonts/Prompt/Prompt-Medium.ttf');
+}
+
+@font-face {
+    font-family: Noto-Sans-regular;
+    src: url('../fonts/Noto_Sans/NotoSans-Regular.ttf');
+}
+
+/* font-family: 'Shrikhand', cursive; */
+/* font-family: 'Kanit', sans-serif;
+font-family: 'Prompt', sans-serif;
+font-family: 'Monda', sans-serif;
+font-family: 'Eagle Lake', cursive;
+font-family: 'Noto Sans', sans-serif; */
+
+/* font-family: 'Kaushan Script', cursive; */
+
 
 /* ******HELPERS********** */
 
@@ -98,16 +135,195 @@ a, .btn {
     flex-direction: column;
 }
 
-.header {
-    background-color: #ffffff;
-    height: 130px;   
+/********GENERAL********/
+h2 {
+    font-size: 1.2rem;
 }
 
-.header h1 {
+.header {
+    /* background-color: #ffffff; */
+    height: 130px;  
+    border-bottom: 1px solid #3BC242; 
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* .header h1 {
     text-align: center;
     line-height: 3rem;
     font-size: 3rem;
     padding: 20px;
-    color: rgb(52, 52, 241);
     font-family: 'Shrikhand', cursive;
+} */
+
+.logo {
+    /* float: left; */
+    /* position: relative; */
+    /* top: -100px; */
+    /* left: 20px; */
+    width: 150px;
+    padding: 1rem;
+    margin: 0 20px;
+    /*colors*/
+    /* blue: #1A00C4;
+    orange: #F66920;
+    green: #3BC242; */
+    align-self: flex-start;
+}
+
+.nav-bar {
+    font-family: 'Shrikhand', cursive;
+    /* text-align: center; */
+    /* line-height: 1.5rem; */
+    font-size: 1.5rem;
+    padding: 20px 50px;
+    color:  #3BC242;
+    text-align: center;
+    /* clear: both; */
+    align-self: center;
+
+}
+a:visited {
+    color: #1A00C4;
+}
+
+.router-link-active {
+    color: #3BC242;
+    font-weight: bold;
+}
+
+/*******HOME************/
+
+.email-keeper-icons {
+    text-align: center;
+    justify-content: center;
+}
+
+.email-icon, .keeper-icon {
+    margin: 20px 80px;
+    /* width: 450px; */
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px rgb(75, 73, 73);
+}
+
+.email-icon h2, .keeper-icon h2 {
+    margin: 20px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 3rem;
+    color: #3BC242;
+}
+
+/****************************KEEPER****************************/
+
+/*****KEEPER-APP-CMP*****/
+
+.add-container {
+    margin-bottom: 30px;
+}
+
+/* .btn-radio {
+    width: 70px;
+    height: 30px;
+    padding: 50px;
+    margin-bottom: 20px;
+} */
+
+
+
+/******NOTE-FILTER-CMP******   &&&&& *************ADD-NOTE-CMP*********/
+
+.note-filter, .add-container {
+    margin-bottom: 20px;
+    /* border: 1px solid rgb(240, 237, 237);
+    border-radius: 2px; */
+    justify-content: center;
+
+}
+
+.note-filter i, .note-filter input, .add-container h2, .add-container select {
+    margin: 0 10px;
+}
+
+.note-filter input, .add-container select {
+    width: 200px;
+    height: 30px;
+}
+
+
+/************NOTE-LIST-CMP***********/
+
+.note h2 {
+    font-size: 1.5rem;
+}
+
+.note-title {
+    border-bottom: 1px solid #9f9e9e;
+    padding: 20px;
+    background-color: white;
+
+}
+
+
+.notes-list {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.note {
+    width: 250px;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 4px;
+    margin: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0px 1px 4px rgb(75, 73, 73);
+}
+
+
+/***********TXT-TYPE-CMP*************/
+
+.txt-type {
+    font-size: 1.2rem;
+    padding: 10px;
+    color: black;
+}
+
+
+/***********IMG-TYPE-CMP*************/
+.note-img {
+    width: 90%;
+    align-self: center;
+
+}
+
+.img-type {
+    align-self: center;
+}
+
+/***********TODOS-TYPE-CMP*************/
+
+.todos-list {
+    justify-content: center;
+
+}
+
+.todo {
+    padding: 10px;
+    color: black;
+}
+
+.btn-edit-todo, .btn-delete-todo {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(252, 243, 243);
+    margin: 5px;
+    /* justify-self: end; */
+}
+
+.btn.btn-delete-todo {
+    color: red;
+}
+
+.btns-todo-container {
+    align-self: flex-end;
 }
