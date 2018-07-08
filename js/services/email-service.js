@@ -6,21 +6,21 @@ var emails = [
         subject: 'Meeting with the marketing team',
         body: 'Hi Ran, wanted to let you know I set a meeting with our marketing team. please confirm.',
         isRead: false,
-        sentAt: Date.now() - 3 * HOUR
+        sentAt: getDateSent(3),        
     },
     {
         id: makeId(),
         subject: 'Tickets for the World cup finals',
         body: 'New worldcup tickets are now available on sale. Hurry up before they are sold out',
         isRead: false,
-        sentAt: Date.now() - 22 * HOUR
+        sentAt: getDateSent(22)        
     },
     {
         id: makeId(),
         subject: 'New job offer',
         body: 'Hi Ran, I have an interesting job offer for you - contact me at 054-6653322. John',
         isRead: false,
-        sentAt: Date.now() - 48 * HOUR
+        sentAt: getDateSent(48)      
     }
 ]
 
@@ -45,15 +45,12 @@ function updateEmails(email) {
     return Promise.resolve(email)
 }
 
-function findEmail(str) {
-    console.log('str', str)
-    
-    let selectedEmails = []
-    let email = emails.filter(email => email.subject.includes(str) || email.body.includes(str) )
-    console.log('email:', email)
-    selectedEmails.push(email)
-    console.log('selected emails', selectedEmails)
-        return Promise.resolve(selectedEmails)       
+function deleteEmail(id) {
+    return new Promise((resolve, reject) => {
+        var emailIdx = emails.findIndex(email => email.id === id)
+        emails.splice(emailIdx, 1);
+        resolve()
+    })
 }
 
 export default {
@@ -61,8 +58,7 @@ export default {
     getEmailById,
     setReadStatus,
     updateEmails,
-    findEmail
-
+    deleteEmail
 }
 
 
@@ -75,4 +71,9 @@ function makeId(length = 5) {
     }
 
     return text;
+}
+
+function getDateSent(numOfHours) {
+    var dateSent = Date.now() - numOfHours * HOUR
+    return moment(dateSent).format('MMMM Do YYYY, h:mm a');
 }

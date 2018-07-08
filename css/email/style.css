@@ -1,11 +1,3 @@
-.unread {
-    font-weight: bold;
-}
-
-.read {
-    font-weight: normal;
-}
-
 
 .email-status {
     background-color: lightblue;
@@ -17,4 +9,36 @@
 }
 .compose-email-button:hover {
     cursor: pointer;
+}
+
+.email-app-wrapper {
+    border: 1px solid rgb(173, 173, 173);
+    box-shadow: 0px 1px 4px rgb(75, 73, 73);
+    max-width: 1045px;
+    padding: 20px;
+}
+
+/* helpers */
+
+.inline {
+    display: inline;
+}
+
+.unread {
+    font-weight: bold;
+}
+
+.read {
+    font-weight: normal;
+}
+
+.selected {
+    background-color: rgb(240, 238, 238);
+}
+
+
+/* flex */
+.center {
+    display: flex;
+    justify-content: center;
 }

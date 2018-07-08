@@ -2,14 +2,14 @@ import emailService from '../../services/email-service.js'
 
 export default {
 
-    props: ['email'],
+    props: ['email', 'selected'],
     template: `
-    <section @click="setEmailStatus" class="email-preview">
+    <section @click="setEmailStatus" class="email-preview" v-bind:class="{selected: selected}">
        
         <router-link :to="'/email-app/'+email.id">
             <h2 class="unread" v-bind:class="{'read':email.isRead}">Subject: {{email.subject}}</h2>
-            <p>Sent: {{email.sentAt}}</p>
-            <p>Read? {{isRead}}</p>
+            <p class="unread" v-bind:class="{'read':email.isRead}">Sent: {{email.sentAt}}</p>
+            <p class="unread" v-bind:class="{'read':email.isRead}">Read? {{isRead}}</p>
             <div @click.stop="toggleMarkStatus" title="Mark as read/unread">           
              <i ref="myMark" class="far fa-envelope"></i>
             </div>
@@ -22,7 +22,8 @@ export default {
 
     data() {
         return {
-            isRead: this.email.isRead
+            isRead: this.email.isRead,
+            
 
         }
     },
@@ -31,6 +32,8 @@ export default {
             if (this.isRead) return;
             emailService.setReadStatus(this.email)
                 .then(() => this.isRead = this.email.isRead)
+                
+            
         },
         toggleMarkStatus() {
             emailService.setReadStatus(this.email)

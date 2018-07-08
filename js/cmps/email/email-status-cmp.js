@@ -2,12 +2,12 @@ import emailService from '../../services/email-service.js'
 
 export default {
 
-
+    props: ['unread', 'totalCount'],
     template: `
     
         <section class="email-status">
-            <p>inbox: {{getUnreadEmails}} {{unReadEmailsCount}} unread emails 
-                from {{getTotalEmailsCount}} {{totalEmails}}  total emails</p>
+            <p>inbox: {{unread}} unread emails 
+                from {{totalCount}}  total emails</p>
         </section>
     `,
     data() {
@@ -23,23 +23,24 @@ export default {
 
     computed: {
 
-        getUnreadEmails() {
-            this.emails.then(emails => {
-                emails.forEach(email => {
-                    if (!email.isRead) {
-                        this.unReadEmailsCount++
-                    }
-                })
-                return this.unReadEmailsCount
-            })
-        },
-        getTotalEmailsCount() {
+        // getUnreadEmails() {
+        //     var unreadCount = 0;
+        //     this.emails.then(emails => {
+        //         emails.forEach(email => {
+        //             if (!email.isRead) {
+        //                 unreadCount++
+        //             }
+        //         })
+        //         return unreadCount
+        //     })
+        // },
+        // getTotalEmailsCount() {
 
-            this.emails.then(emails => {
-                let length = emails.length;
-                this.totalEmails = length
-            })
+        //     this.emails.then(emails => {
+        //         let length = emails.length;
+        //         this.totalEmails = length
+        //     })
 
-        }
+        // }
     }
 }
