@@ -10,7 +10,7 @@ import addtodosType from '../../cmps/keeper/add-todos-type-cmp.js'
 
 
 export default {
-    props:['type', 'noteData'],
+    props:['type'],
     template: `<section v-if="note">EDIT/ADD CMP
                     <div>{{selectedType}} props in edit</div>
                     <section v-if="note">
@@ -24,12 +24,8 @@ export default {
                     <!-- <add-Texttype></add-Texttype> -->
                     <!-- <add-txttype></add-txttype> -->
 
-                    <!-- <component :is="selectedType" v-if="selectedType" :note="note"></component> -->
                     <component :is="'add'+selectedType" v-if="selectedType" :note="note"></component>
 
-                    <!-- TODO:if there is url => true -->
-
-                    <!-- TODO:if there is todos => true -->
                     <button  class="btn btn-color">
                         <input type="color" id="colorValue" name="color" value="#ffffff" @change="note.bgColor = $event.target.value"/>
                         <label for="colorValue"></label>
@@ -64,8 +60,8 @@ export default {
     },
 
     created() {
-        console.log('hey world')
-        console.log(this.type)
+        // console.log('hey world')
+        // console.log(this.type)
         // this.selectedType = this.type;
         // console.log('selectedType in edit', this.selectedType);
         // console.log('selectedType', type);
@@ -105,9 +101,20 @@ export default {
             
     // } else this.note = this['noteData']
     } else {
+        console.log('this.type if it new', this.type);
+
         this.note = this.editedNote;
+        console.log('this.note if it new', this.note);
         this.selectedType = this.type;
         console.log('this.selectedType if it new', this.selectedType);
+        this.note.type = this.type;
+        console.log('this.note.type if it new', this.note.type);
+
+        if (this.note.type === 'txtType') this.editedNote.data.txt = '';
+        else if (this.note.type === 'imgType') this.editedNote.data.url = '';
+        else if (this.note.type === 'todosType') this.editedNote.data.todos = [];
+        console.log('this.selectedType if it new', this.selectedType);
+        console.log('this.selectedType if it new',  this.note);
     }
     // console.log('this.editedNote', this.editedNote);
     // else {
@@ -149,7 +156,7 @@ export default {
                 })
             
             //restart editedNote 
-            this.editedNote = keeperService.createEmptyNote();
+            this.editedNote = null;
             this.note = null;
             // console.log('this.editedNote.data.txt', this.editedNote.data.txt);
             //TODO: for todos

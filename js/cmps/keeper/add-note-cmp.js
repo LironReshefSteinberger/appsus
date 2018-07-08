@@ -60,9 +60,10 @@ export default {
             `,
       data() {
         return {
-            selectedType: '', //TODO: FOR EMPTY NOTE TO ADD DATA 
+            selectedType: '',
         }
     },
+    
     components: {
         // addTxtType,
         addImgType,
@@ -70,22 +71,26 @@ export default {
     },
     methods: {
         selectedTxtType() {
-            this.selectedType = 'addtxtType';
+            this.selectedType = 'txtType';
             this.transferSelectedType();
             // this.routerPush();
             this.$router.push(`/keeper-app/add/${this.selectedType}`);
         },
         selectedImgType() {
             this.selectedType = 'imgType';
-            console.log('this.selectedType img', this.selectedType);
+            // console.log('this.selectedType img', this.selectedType);
+            this.$router.push(`/keeper-app/add/${this.selectedType}`);
+
             this.transferSelectedType();
-            this.routerPush();
+            // this.routerPush();
         },
         selectedTodosType() {
             this.selectedType = 'todosType';
-            console.log('this.selectedType todos', this.selectedType);
+            // console.log('this.selectedType todos', this.selectedType);
+            this.$router.push(`/keeper-app/add/${this.selectedType}`);
+
             this.transferSelectedType();
-            this.routerPush();
+            // this.routerPush();
         },
         routerPush() {
             this.$router.push(`/keeper-app/edit`);

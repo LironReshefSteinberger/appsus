@@ -17,11 +17,15 @@ export default {
                                 </div> -->
                             </li>
                         </ul>
+                        <button class="btn btn-add-todo" @click="onAddTodo">+</button>
+                        <input v-if="isAddTodo" type="text" v-model="addTodo">
                     </section>
     `,
     data() {
         return {
             todos: this.note.data.todos,
+            addTodo: null,
+            isAddTodo: false,
         }
     },
     created() {
@@ -36,6 +40,12 @@ export default {
     methods: {
         updateTodo(ev, todoIdx) {
 			this.todos[todoIdx] = ev.target.value;
+        },
+        onAddTodo() {
+            this.isAddTodo = true;
+            this.todos.push(this.addTodo);
+
+            console.log('this.todos in ADD.todo', this.todos);
         }
     }
 }
