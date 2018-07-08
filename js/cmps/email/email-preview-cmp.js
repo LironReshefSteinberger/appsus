@@ -16,7 +16,7 @@ export default {
             
             
         </router-link>
-       
+        <div class="line"></div>  
     </section>
     `,
 

@@ -1,7 +1,7 @@
 
-.email-status {
+/* .email-status {
     background-color: lightblue;
-}
+} */
 
 .compose-email-button {
     background-color: lightgreen;
@@ -14,9 +14,66 @@
 .email-app-wrapper {
     border: 1px solid rgb(173, 173, 173);
     box-shadow: 0px 1px 4px rgb(75, 73, 73);
-    max-width: 1045px;
-    padding: 20px;
+    width: 1045px;
+    height: 100vh;  
+      
 }
+
+.search-box {
+   background-color:  rgb(216, 215, 215);
+   padding: 10px;
+}
+
+.search-input-box {
+    padding: 10px;
+    width:50%;
+}
+
+
+.btn-compose {
+    padding: 11px;
+    background-color: lightseagreen;
+    border:none;
+    border-radius: 5px;
+}
+
+.btn-compose:hover {
+    cursor: pointer;
+    color:white;
+    background-color: rgb(40, 128, 40);
+    transition: 0.3s;
+}
+
+.filter-by {
+    padding: 10px;
+}
+
+.email-sort {
+    margin: 0 20px;
+}
+
+.email-status {
+    padding: 10px;
+}
+
+.line {
+    height: 1px;
+    background-color: rgb(224, 221, 221);
+    margin:10px 0;
+
+}
+
+.email-list {
+    padding: 0 15px;
+    border-right: 1px solid rgb(224, 221, 221);
+}
+
+.email-details {
+    padding: 0 15px;
+}
+
+
+
 
 /* helpers */
 

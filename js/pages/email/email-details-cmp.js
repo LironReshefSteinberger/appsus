@@ -11,7 +11,7 @@ export default {
             <h3>Sent: {{email.sentAt}}</h3> 
             <button @click="deleteEmail">Delete</button>                      
         </div>
-        <hr>
+        <div class="line"></div>
         <div class="email-body-section">
             <p>{{email.body}}</p> 
         </div>

@@ -5,9 +5,11 @@ export default {
     props: ['unread', 'totalCount'],
     template: `
     
-        <section class="email-status">
+        <section class="email-status"> 
+            <div class="line"></div>          
             <p>inbox: {{unread}} unread emails 
                 from {{totalCount}}  total emails</p>
+            <div class="line"></div>
         </section>
     `,
     data() {

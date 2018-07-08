@@ -12,17 +12,15 @@ export default {
 
     template: `
     <section class="email-app center">
-        <div class="email-app-wrapper flex">
-            <div class="main-menu flex column">
-                <email-filter @doFilter="setFilter"></email-filter> 
-                <email-sort @sortBy="setSort"></email-sort>
-                <router-link to="/compose">
-                    <div class="compose-email-button">Compose</div>
-                </router-link> 
-                <email-status :unread="getUnreadEmails" :totalCount="getTotalEmailsCount"></email-status>
-                <email-list :emails="emailsToShow"></email-list>
-            </div>
-            <div class="details">
+        <div class="email-app-wrapper">
+            <email-filter @doFilter="setFilter"></email-filter> 
+            <!-- <router-link to="/compose">
+                <div class="compose-email-button">Compose</div>
+            </router-link>  -->
+            <email-sort @sortBy="setSort"></email-sort>
+            <email-status :unread="getUnreadEmails" :totalCount="getTotalEmailsCount"></email-status>
+            <div class="main-menu flex">
+                <email-list :emails="emailsToShow"></email-list>            
                 <email-details :email="selectedEmail" v-if="isSelectedEmail"></email-details>        
             </div>
         </div>
@@ -43,6 +41,8 @@ export default {
         emailService.query()
             .then(emails => {
                 this.emails = emails
+                this.isSelectedEmail = true;
+                this.selectedEmail = this.emails[0]
             })
     },
     components: {
