@@ -22,7 +22,7 @@ var defaultNotes = [
         title: 'Notes list',
         bgColor: '#fff4e6',
         data: {
-            todos: ['shopping', 'studing'],
+            todos: ['shopping', 'studying'],
         }
     },
     {
@@ -76,7 +76,7 @@ var defaultNotes = [
         title: 'Notes list',
         bgColor: '#fff4e6',
         data: {
-            todos: ['shopping', 'studing'],
+            todos: ['shopping', 'studying'],
         }
     },
     {

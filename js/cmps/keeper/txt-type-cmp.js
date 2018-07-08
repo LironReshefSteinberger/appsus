@@ -17,24 +17,24 @@ export default {
                 `,
     data() {
         return {
-            deleteLabel : 'Delete',
+            // deleteLabel : 'Delete',
         }
     },
     methods: {
-        removeNote() {
-            this.deleteLabel ='Deleting...';
-            keeperService.removeNote(this.note.id)
-                .then(() => {
-                    console.log('note in edit-delete ', this.note);
-                })
-                    // console.log('note in edit-delete', this.note.type);
+        // removeNote() {
+        //     this.deleteLabel ='Deleting...';
+        //     keeperService.removeNote(this.note.id)
+        //         .then(() => {
+        //             console.log('note in edit-delete ', this.note);
+        //         })
+        //             // console.log('note in edit-delete', this.note.type);
                
-                .catch(err=>{
-					console.log('Failed to delete');
-					this.deleteLabel = 'Delete'
-				})
-            this.$router.push(`/keeper-app`)
-        },
+        //         .catch(err=>{
+		// 			console.log('Failed to delete');
+		// 			this.deleteLabel = 'Delete'
+		// 		})
+        //     this.$router.push(`/keeper-app`)
+        // },
 
     }
     

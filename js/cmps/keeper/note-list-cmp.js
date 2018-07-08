@@ -12,7 +12,7 @@ import editNote from '../../pages/keeper/edit-note-cmp.js'
 export default {
     props: ['notes'],
     template: `
-            <section>
+            <section v-if="notes">>
                 <!-- <note-filter v-on:filtered="setFilter"></note-filter> 
                 <note-list :notes="booksToShow" ></book-list> -->
                 <!-- <div>KEEPER COMP</div> -->
@@ -31,7 +31,7 @@ export default {
                         <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
                         <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
                         <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
-                        <button class="btn btn-delete-note" @click="removeNote"><i class="fa fa-trash"></i></button> 
+                        <button class="btn btn-delete-note" @click="removeNote(note.id)"><i class="fa fa-trash"></i></button> 
                         <button class="btn btn-pin" @click="pinNote(note.id)"><i class="fa fa-map-pin"></i></button>
                     </li>
                 </ul>
@@ -63,7 +63,22 @@ export default {
                     console.log('note was pinned ');
                     // console.log('note in edit-delete', this.note.type);
                 })
-        }
+        },
+        removeNote(noteId) {
+            this.deleteLabel ='Deleting...';
+            keeperService.removeNote(noteId)
+                .then(() => {
+                    // console.log('note in edit-delete ', this.note);
+                    this.deleteLabel = 'Delete'
+                })
+                    // console.log('note in edit-delete', this.note.type);
+               
+                .catch(err=>{
+					console.log('Failed to delete');
+					this.deleteLabel = 'Delete'
+				})
+            this.$router.push(`/keeper-app`) //???? moving to white page
+        },
     },
     components: {
         imgType,

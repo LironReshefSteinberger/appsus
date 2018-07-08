@@ -23,7 +23,7 @@ export default {
                 `,
     data() {
         return {
-            deleteLabel : 'Delete',
+            // deleteLabel : 'Delete',
             todos: this.note.data.todos,
         }
     },
@@ -31,21 +31,21 @@ export default {
         // console.log('note.data.todos ',this.note.data.todos);
     },
     methods: {
-        removeNote() {
-            this.deleteLabel ='Deleting...';
-            keeperService.removeNote(this.note.id)
-                .then(() => {
-                    console.log('note in edit-delete ', this.note);
-                    this.deleteLabel = 'Delete'
-                })
-                    // console.log('note in edit-delete', this.note.type);
+        // removeNote() {
+        //     this.deleteLabel ='Deleting...';
+        //     keeperService.removeNote(this.note.id)
+        //         .then(() => {
+        //             console.log('note in edit-delete ', this.note);
+        //             this.deleteLabel = 'Delete'
+        //         })
+        //             // console.log('note in edit-delete', this.note.type);
                
-                .catch(err=>{
-					console.log('Failed to delete');
-					this.deleteLabel = 'Delete'
-				})
-            this.$router.push(`/keeper-app`) //???? moving to white page
-        },
+        //         .catch(err=>{
+		// 			console.log('Failed to delete');
+		// 			this.deleteLabel = 'Delete'
+		// 		})
+        //     this.$router.push(`/keeper-app`) //???? moving to white page
+        // },
         removeTodo(noteId, todoIdx) {
             console.log('TODO -noteId) ', noteId);
             console.log('TODO -todoIdx) ', todoIdx);
