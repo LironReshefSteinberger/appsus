@@ -4,9 +4,10 @@ import keeperService from '../../services/keeper-service.js'
 
 export default {
     props: ['selectedType','note'],
-    template: `<section v-if="note">
-                    <h1>This is ADD img cmp</h1>
+    template: `<section v-if="note" class="add-img">
+                    <!-- <h1>This is ADD img cmp</h1> -->
                     <div>
+                        <h3>Image URL:</h3>
                         <input ref="updatedInput" type="text" v-model="url" @input="changeUrl">
                     </div>
                     </router-link>

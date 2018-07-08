@@ -8,10 +8,14 @@ import eventBus from '../../services/event-bus-service.js'
 export default {
     template:`
             <section class="add-container flex" >
-                <h2>Take a note</h2>
-                    <button class="btn btn-txt-selected" @click="selectedTxtType">Text</button>
-                    <button class="btn btn-img-selected" @click="selectedImgType">Image</button>
-                    <button class="btn btn-todos-selected" @click="selectedTodosType">Todos</button>
+                <div class="add-btns-title-container flex align-center"></div>
+                    <h2>Take a note</h2>
+                    <div class="btns-add">
+                        <button class="btn btn-txt-selected" @click="selectedTxtType"><i class="fa fa-pen"></i></button>
+                        <button class="btn btn-img-selected" @click="selectedImgType"><i class="fa fa-image"></i></button>
+                        <button class="btn btn-todos-selected" @click="selectedTodosType"><i class="fa fa-list"></i></button>
+                    </div>
+                </div>
             </section>
             `,
       data() {

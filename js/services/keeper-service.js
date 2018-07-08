@@ -119,7 +119,7 @@ var defaultNotes = [
 
 function createEmptyNote() {
     return {
-        id: utilService.makeId(),
+        // id: utilService.makeId(),
         type: '',
         title: '',
         bgColor: '#f3f3f2',
@@ -151,7 +151,6 @@ function query() {
 
 function getNoteById(id) {
     var note = notes.find(note => note.id === id)
-    // console.log('book!!!!,', note);
     return Promise.resolve(note);
 }
 
@@ -162,10 +161,9 @@ function saveNote(note) {
         console.log('saveNote in service,noteIdx', noteIdx);
         // Vue.js Caveat!
         notes.splice(noteIdx, 1, note)
-        // books[bookIdx] = book;
 
     } else {
-        note.id = makeId();
+        note.id = utilService.makeId();
         notes.push(note);
     }
     utilService.saveToStorage(NOTES_KEY, notes);
