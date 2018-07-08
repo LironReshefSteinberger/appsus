@@ -117,7 +117,6 @@ var defaultNotes = [
     }
 ];
 
-//TODO: TO CHANGE
 function createEmptyNote() {
     return {
         id: utilService.makeId(),
@@ -127,18 +126,6 @@ function createEmptyNote() {
         data: {}
     }
 }
-// function createEmptyNote() {
-//     return {
-//         id: utilService.makeId(),
-//         type: '',
-//         title: '',
-//         data: {
-//             url: '',
-//             todo: [],
-//             txt: ''
-//         }
-//     }
-// }
 
 createNotes();
 
