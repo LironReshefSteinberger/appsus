@@ -1,7 +1,7 @@
 import emailService from '../../services/email-service.js'
 
 
-export default {   
+export default {
 
     template: `
     <section class="email-details" v-if="email">
@@ -10,11 +10,11 @@ export default {
         
             <h2>Subject: {{email.subject}}</h2>
             <h3>Sent: {{email.sentAt}}</h3> 
-             <p>{{email.body}}</p>           
+                      
         </div>
         <hr>
         <div class="email-body-section">
-           
+            <p>{{email.body}}</p> 
         </div>
 
 
@@ -22,7 +22,7 @@ export default {
     </section>
     `,
 
-    data (){
+    data() {
         return {
             email: ''
         }
@@ -30,23 +30,23 @@ export default {
 
     created() {
         this.loadEmail();
-      },
+    },
 
     methods: {
         loadEmail() {
             emailService.getEmailById(this.$route.params.emailId)
-            
-            .then(email => {
-                this.email = email
-                
-            })
+
+                .then(email => {
+                    this.email = email
+
+                })
         },
-        
+
     },
     watch: {
         '$route.params.emailId': function (newEmailId) {
             console.log('$route.params.bookId has changed!', newEmailId);
-            this.loadEmail()            
+            this.loadEmail()
         }
     }
 }

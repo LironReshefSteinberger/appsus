@@ -1,0 +1,20 @@
+.unread {
+    font-weight: bold;
+}
+
+.read {
+    font-weight: normal;
+}
+
+
+.email-status {
+    background-color: lightblue;
+}
+
+.compose-email-button {
+    background-color: lightgreen;
+    
+}
+.compose-email-button:hover {
+    cursor: pointer;
+}
