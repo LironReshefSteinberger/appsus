@@ -1,7 +1,7 @@
 
-/* .email-status {
-    background-color: lightblue;
-} */
+.compose-email-wrapper {
+    margin-bottom: 20px;
+}
 
 .compose-email-button {
     background-color: lightgreen;
@@ -11,11 +11,14 @@
     cursor: pointer;
 }
 
+
+
 .email-app-wrapper {
-    border: 1px solid rgb(173, 173, 173);
+    /* border: 1px solid rgb(173, 173, 173); */
     box-shadow: 0px 1px 4px rgb(75, 73, 73);
-    width: 1045px;
-    height: 100vh;  
+    /* width: 1045px;
+    height: 100vh;   */
+    background-color: white;
       
 }
 
@@ -31,7 +34,7 @@
 
 
 .btn-compose {
-    padding: 11px;
+    padding: 11px 25px;
     background-color: lightseagreen;
     border:none;
     border-radius: 5px;
@@ -66,14 +69,49 @@
 .email-list {
     padding: 0 15px;
     border-right: 1px solid rgb(224, 221, 221);
+    width: 40vw;
 }
 
 .email-details {
     padding: 0 15px;
+    width: 100%;
+}
+
+.fa-trash-alt {
+    font-size: 28px;
+    color: grey;
+}
+
+.fa-trash-alt:hover {
+    cursor: pointer;
+    color: lightcoral;
+}
+
+.email-details, .email-preview p {
+    font-size: 14px;    
+}
+
+.email-preview p {
+    color: rgb(78, 78, 78);  
+}
+
+.new-message-label {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    padding: 15px;
+}
+
+.compose-input-box {
+    width: 100%;
+    border:none;
+    padding: 15px;
 }
 
 
-
+.back-btn:hover {
+cursor: pointer;
+transform: scale(0.95)
+}
 
 /* helpers */
 
@@ -93,9 +131,35 @@
     background-color: rgb(240, 238, 238);
 }
 
+.container {
+    box-shadow: 0px 1px 4px rgb(75, 73, 73);
+    background-color: white;
+    width: 1045px;
+    margin-bottom: 30px;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.no-outline {
+    outline:none;
+}
 
 /* flex */
 .center {
     display: flex;
     justify-content: center;
+}
+
+
+/********** TABLET / MOBILE **********/
+
+@media (max-width: 750px) {
+    .main-menu {
+        flex-direction: column;    
+    }
+    .email-list {
+        width: 100%;
+    }
 }

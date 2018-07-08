@@ -12,7 +12,7 @@ export default {
 
     template: `
     <section class="email-app center">
-        <div class="email-app-wrapper">
+        <div class="email-app-wrapper container">
             <email-filter @doFilter="setFilter"></email-filter> 
             <!-- <router-link to="/compose">
                 <div class="compose-email-button">Compose</div>

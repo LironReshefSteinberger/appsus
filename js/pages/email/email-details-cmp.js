@@ -6,10 +6,13 @@ export default {
     template: `
     <section class="email-details" v-if="email">
   
-        <div class="email-top-section">        
-            <h2>Subject: {{email.subject}}</h2>
-            <h3>Sent: {{email.sentAt}}</h3> 
-            <button @click="deleteEmail">Delete</button>                      
+        <div class="email-top-section"> 
+            <div class="flex space-between">
+                <h2>Subject: {{email.subject}}</h2>
+                <i @click="deleteEmail" class="fa fa-trash-alt"></i>                
+            </div>       
+            <p>Sent: {{email.sentAt}}</p> 
+                              
         </div>
         <div class="line"></div>
         <div class="email-body-section">

@@ -9,7 +9,7 @@ export default {
         <router-link :to="'/email-app/'+email.id">
             <h2 class="unread" v-bind:class="{'read':email.isRead}">Subject: {{email.subject}}</h2>
             <p class="unread" v-bind:class="{'read':email.isRead}">Sent: {{email.sentAt}}</p>
-            <p class="unread" v-bind:class="{'read':email.isRead}">Read? {{isRead}}</p>
+            <!-- <p class="unread" v-bind:class="{'read':email.isRead}">Read? {{isRead}}</p> -->
             <div @click.stop="toggleMarkStatus" title="Mark as read/unread">           
              <i ref="myMark" class="far fa-envelope"></i>
             </div>

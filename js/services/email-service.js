@@ -1,28 +1,42 @@
-const HOUR = 1000 * 60 * 60
+import utils from './util-service.js'
 
-var emails = [
-    {
-        id: makeId(),
-        subject: 'Meeting with the marketing team',
-        body: 'Hi Ran, wanted to let you know I set a meeting with our marketing team. please confirm.',
-        isRead: false,
-        sentAt: getDateSent(3),        
-    },
-    {
-        id: makeId(),
-        subject: 'Tickets for the World cup finals',
-        body: 'New worldcup tickets are now available on sale. Hurry up before they are sold out',
-        isRead: false,
-        sentAt: getDateSent(22)        
-    },
-    {
-        id: makeId(),
-        subject: 'New job offer',
-        body: 'Hi Ran, I have an interesting job offer for you - contact me at 054-6653322. John',
-        isRead: false,
-        sentAt: getDateSent(48)      
+var emails = []
+
+const HOUR = 1000 * 60 * 60
+const APP_KEY = 'my-emails'
+
+loadEmails();
+function loadEmails() {
+    if (utils.loadFromStorage('my-emails')) {
+        emails = utils.loadFromStorage('my-emails');
+        return;
     }
-]
+
+    emails = [
+        {
+            id: makeId(),
+            subject: 'Meeting with the marketing team',
+            body: 'Hi Ran, wanted to let you know I set a meeting with our marketing team. please confirm.',
+            isRead: false,
+            sentAt: getDateSent(3),
+        },
+        {
+            id: makeId(),
+            subject: 'Tickets for the World cup finals',
+            body: 'New worldcup tickets are now available on sale. Hurry up before they are sold out',
+            isRead: false,
+            sentAt: getDateSent(22)
+        },
+        {
+            id: makeId(),
+            subject: 'New job offer',
+            body: 'Hi Ran, I have an interesting job offer for you - contact me at 054-6653322. John',
+            isRead: false,
+            sentAt: getDateSent(48)
+        }
+    ]
+    utils.saveToStorage(APP_KEY, emails)
+}
 
 function query() {
     return Promise.resolve(emails)
@@ -36,12 +50,14 @@ function getEmailById(id) {
 
 function setReadStatus(email) {
     email.isRead = !email.isRead;
+    utils.saveToStorage(APP_KEY, emails)
     return Promise.resolve(email);
 }
 
 function updateEmails(email) {
     email.id = makeId();
     emails.unshift(email);
+    utils.saveToStorage(APP_KEY, emails)
     return Promise.resolve(email)
 }
 
@@ -50,6 +66,7 @@ function deleteEmail(id) {
         var emailIdx = emails.findIndex(email => email.id === id)
         emails.splice(emailIdx, 1);
         resolve()
+        utils.saveToStorage(APP_KEY, emails)
     })
 }
 
@@ -58,7 +75,8 @@ export default {
     getEmailById,
     setReadStatus,
     updateEmails,
-    deleteEmail
+    deleteEmail,
+    getDateSent
 }
 
 
