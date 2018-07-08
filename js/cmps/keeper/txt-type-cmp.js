@@ -10,8 +10,8 @@ export default {
 
                     <!-- <button class="btn btn-edit" @click="editNote">Edit</button>
                     <button class="btn btn-delete">Delete</button> -->
-                    <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
-                        <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button> 
+                    <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
+                        <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
                     </div>
                 </section>
                 `,

@@ -16,8 +16,8 @@ export default {
                     </li>
                     <!-- <button class="btn btn-edit" @click="editNote">Edit</button>
                     <button class="btn btn-delete">Delete</button> -->
-                    <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
-                        <button class="btn btn-delete-note" @click="removeNote"><i class="fa fa-trash"></i></button> 
+                    <!-- <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
+                        <button class="btn btn-delete-note" @click="removeNote"><i class="fa fa-trash"></i></button>  -->
                     </ul>
                 </section>
                 `,

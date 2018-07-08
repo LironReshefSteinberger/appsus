@@ -7,8 +7,8 @@ export default {
     template: `<section v-if="note" class="img-type flex align-center column">
                     <!-- <h1>This it img!! cmp, note type is {{note.type}}</h1> -->
                     <img class="note-img" :src="note.data.url"/>
-                    <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
-                    <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button> 
+                    <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link> -->
+                    <!-- <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
                 </section>
                 `,
     data() {

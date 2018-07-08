@@ -25,11 +25,13 @@ export default {
                         <div class="note-title">
                             <h2>{{note.title}}</h2>
                         </div>
-                        <router-link :to="'/keeper-app/'+note.id">
+                        <!-- <router-link :to="'/keeper-app/'+note.id"> -->
                             <component :is="note.type" :note="note"></component>
-                        </router-link>
-                        <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link> -->
-                        <!-- <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
+                        <!-- </router-link> -->
+                        <!-- <router-link class="btn btn-edit" tag="button" :to="'/keeper-app/edit/' + note.id">Edit</router-link>
+                        <button class="btn btn-delete" @click="removeNote">{{deleteLabel}}</button>  -->
+                        <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
+                        <button class="btn btn-delete-note" @click="removeNote"><i class="fa fa-trash"></i></button> 
                         <button class="btn btn-pin" @click="pinNote(note.id)"><i class="fa fa-map-pin"></i></button>
                     </li>
                 </ul>

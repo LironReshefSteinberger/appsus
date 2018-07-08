@@ -3,6 +3,7 @@ console.log('add-note-cmp');
 // import addImgType from '../../cmps/keeper/
 import addTxtType from '../../cmps/keeper/add-txt-type-cmp.js'
 import addImgType from '../../cmps/keeper/add-img-type-cmp.js'
+import editNote from '../../pages/keeper/edit-note-cmp.js'
 
 
 export default {
@@ -27,11 +28,18 @@ export default {
                     <option class="btn btn-todos-selected" value="addTodosType">Todos</option>
                     <!-- <component :is="selectedType" v-if="note"> -->
                 </select>
-            
-                    <component :is="selectedType" v-if="selectedType" :type="selectedType">
-                        {{selectedType}}
 
-                    </component>
+
+                        <router-link v-if="selectedType" to="/keeper-app/edit">
+                        <edit-note :type="selectedType">
+        
+                        </edit-note>
+                    </router-link>
+            
+                    <!-- <component :is="selectedType" v-if="selectedType" :type="selectedType"> -->
+                        <!-- {{selectedType}} -->
+
+                    <!-- </component> -->
 
                     
                
@@ -40,12 +48,13 @@ export default {
             `,
       data() {
         return {
-            selectedType: null, //TODO: FOR EMPTY NOTE TO ADD DATA 
+            selectedType: '', //TODO: FOR EMPTY NOTE TO ADD DATA 
         }
     },
     components: {
         addTxtType,
-        addImgType
+        addImgType,
+        editNote
     },
     methods: {
         selectedTxtType() {

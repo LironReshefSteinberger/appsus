@@ -1,10 +1,12 @@
 console.log('-edit-txt-type-cmp');
 
 import keeperService from '../../services/keeper-service.js'
+// import addNote from '../../cmps/keeper/add-note-cmp.js'
 import eventBus, {SAVE_NOTE_MSG} from '../../services/event-bus-service.js'
 
+
 export default {
-    props:['type', 'note'],
+    props:['type', 'noteData'],
     template: `<section>EDIT/ADD CMP
         <div>{{selectedType}} props in edit</div>
                 <section v-if="note">
@@ -30,7 +32,7 @@ export default {
                 `,
     data() {
         return {
-            // note: null,
+            note: null,
             url: null,
             txt: null,
             todos: null,
@@ -41,6 +43,9 @@ export default {
             // newUrl: null,
             // newTodos: null
         }
+    },
+    components: {
+        // addNote
     },
     created() {
         // this.selectedType = this.type;
@@ -73,7 +78,7 @@ export default {
             // console.log('note in edit', this.note.type);
             })
             
-    } 
+    } else this.note = this['noteData']
     // console.log('this.editedNote', this.editedNote);
     // else {
 
@@ -103,7 +108,7 @@ export default {
                 .then(savedNote => {
                     console.log(`Note ${savedNote.id} succesfuly saved`);
                     eventBus.$emit(SAVE_NOTE_MSG, 'Your note was saved!')
-                    this.$router.push(`/keeper-app/${savedNote.id}`)
+                    this.$router.push(`/keeper-app`)
                 })
             
             //restart editedNote 

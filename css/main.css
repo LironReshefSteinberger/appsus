@@ -201,7 +201,10 @@ a:visited {
 
 .email-icon, .keeper-icon {
     margin: 20px 80px;
-
+    /* width: 450px; */
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px rgb(75, 73, 73);
 }
 
 .email-icon h2, .keeper-icon h2 {
@@ -210,6 +213,8 @@ a:visited {
     font-size: 3rem;
     color: #3BC242;
 }
+
+/****************************KEEPER****************************/
 
 /*****KEEPER-APP-CMP*****/
 
@@ -232,6 +237,8 @@ a:visited {
     margin-bottom: 20px;
     /* border: 1px solid rgb(240, 237, 237);
     border-radius: 2px; */
+    justify-content: center;
+
 }
 
 .note-filter i, .note-filter input, .add-container h2, .add-container select {
@@ -260,6 +267,7 @@ a:visited {
 
 .notes-list {
     align-items: flex-start;
+    justify-content: center;
 }
 
 .note {
