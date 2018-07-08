@@ -165,7 +165,6 @@ h2 {
 }
 
 .nav-bar {
-    font-family: 'Shrikhand', cursive;
     font-size: 1rem;
     padding: 20px 50px;
     color:  #3BC242;
@@ -227,6 +226,7 @@ a:visited {
     }
 
     .nav-bar {
+        font-family: 'Shrikhand', cursive;
         min-width: 300px;
         font-size: 1.5rem;
         flex-direction: row;
