@@ -5,7 +5,7 @@ import keeperService from '../../services/keeper-service.js'
 export default {
     props: ['selectedType','note'],
     template: `<section v-if="note">
-                    <h1>This is ADD img cmp</h1>
+                    <!-- <h1>This is ADD img cmp</h1> -->
                     <div>
                         <input ref="updatedInput" type="text" v-model="url" @input="changeUrl">
                     </div>

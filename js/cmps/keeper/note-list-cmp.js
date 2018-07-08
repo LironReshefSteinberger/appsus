@@ -11,7 +11,7 @@ import editNote from '../../pages/keeper/edit-note-cmp.js'
 export default {
     props: ['notes'],
     template: `
-            <section v-if="notes">>
+            <section v-if="notes">
                 <add-note></add-note>
     
                 <ul class="notes-list clean-list flex flex-wrap" v-if="notes">
@@ -20,9 +20,11 @@ export default {
                             <h2>{{note.title}}</h2>
                         </div>
                             <component :is="note.type" :note="note"></component>
-                        <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
-                        <button class="btn btn-delete-note" @click="removeNote(note.id)"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-pin" @click="pinNote(note.id)"><i class="fa fa-map-pin"></i></button>
+                        <div class="btns-note-container flex">
+                            <router-link class="btn btn-edit-note" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
+                            <button class="btn btn-delete-note" @click="removeNote(note.id)"><i class="fa fa-trash"></i></button> 
+                            <button class="btn btn-pin" @click="pinNote(note.id)"><i class="fa fa-map-pin"></i></button>
+                        </div>
                     </li>
                 </ul>
 
