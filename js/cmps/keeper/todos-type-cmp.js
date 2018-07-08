@@ -6,7 +6,7 @@ export default {
     props: ['note'],
     template: `<section v-if="note">
                     <ul class="todos-list clean-list flex flex-wrap space-between">
-                        <li class="todo flex align-center" v-for="(todo, idx) in todos" :key="idx">
+                        <li class="todo flex align-center space-between" v-for="(todo, idx) in todos" :key="idx">
                             {{todo}}
                             <div class="btns-todo-container flex">
                                 <router-link class="btn btn-edit-todo" tag="button" :to="'/keeper-app/edit/' + note.id"><i class="fa fa-edit"></i></router-link>
