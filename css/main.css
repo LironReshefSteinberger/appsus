@@ -4,7 +4,6 @@
 
 html {
     margin: 0;
-    /* background-color: black; */
 }
 
 body {
@@ -35,17 +34,14 @@ a, .btn {
     padding: 5px;
     margin: 5px;
     border: 0px;
-    background-color: #eaeaea;
-    /* background-color: #3BC242; */
+    background-color: #ffffff8c;
     font-weight: bold;
     color: #1A00C4;
-    /* color: #3BC242; */
     border-radius: 4px;
 }
 
 .btn:hover {
     background-color: #80808047;
-    /* color: #80808047; */
     
 }
 
@@ -150,7 +146,6 @@ h2 {
 }
 
 .header {
-    /* background-color: #ffffff; */
     height: 130px;  
     border-bottom: 1px solid #3BC242; 
     justify-content: space-between;
@@ -158,19 +153,7 @@ h2 {
     background-color: white;
 }
 
-/* .header h1 {
-    text-align: center;
-    line-height: 3rem;
-    font-size: 3rem;
-    padding: 20px;
-    font-family: 'Shrikhand', cursive;
-} */
-
 .logo {
-    /* float: left; */
-    /* position: relative; */
-    /* top: -100px; */
-    /* left: 20px; */
     width: 150px;
     padding: 1rem;
     margin: 0 20px;
@@ -183,16 +166,22 @@ h2 {
 
 .nav-bar {
     font-family: 'Shrikhand', cursive;
-    /* text-align: center; */
-    /* line-height: 1.5rem; */
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 20px 50px;
     color:  #3BC242;
     text-align: center;
-    /* clear: both; */
     align-self: center;
-
+    flex-direction: column;
 }
+
+.nav-bar a {
+    padding: 0 10px;
+}
+
+.nav-bar .router-link{
+    text-decoration: 1px solid #3BC242;
+}
+
 a:visited {
     color: #1A00C4;
 }
@@ -207,11 +196,13 @@ a:visited {
 .email-keeper-icons {
     text-align: center;
     justify-content: center;
+    flex-direction: column;
+    
 }
 
 .email-icon, .keeper-icon {
-    margin: 20px 80px;
-    /* width: 450px; */
+    margin: 40px 60px;
+    background-color: white;
     border: 1px solid rgb(173, 173, 173);
     border-radius: 4px;
     box-shadow: 0px 1px 4px rgb(75, 73, 73);
@@ -224,3 +215,21 @@ a:visited {
     color: #3BC242;
 }
 
+.email-icon img, .keeper-icon img{
+    width: 200px;
+}
+
+
+
+@media screen and (min-width: 678px) {
+    .email-keeper-icons {
+        flex-direction: row;
+    }
+
+    .nav-bar {
+        min-width: 300px;
+        font-size: 1.5rem;
+        flex-direction: row;
+    }
+
+}

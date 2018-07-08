@@ -14,9 +14,11 @@ export default {
                     <div class="edit-container flex align-center column">
                         
                         <h2>Edit note</h2>
-                        <section v-if="note">
-                            <h3>Title:</h3>
-                            <input class="title" ref="updatedInput" type="text" v-model="note.title">
+                        <section v-if="note" >
+                            <div class="edit-note-title-container flex column align-center">
+                                <h3>Title:</h3>
+                                <input class="title" ref="updatedInput" type="text" v-model="note.title">
+                            </div>
                             <!-- <div> let's edit</div> -->
                             <component :is="'add'+selectedType" v-if="selectedType" :note="note"></component>
                             <div class="edit-note-btns-container flex align-center">
@@ -90,7 +92,7 @@ export default {
             console.log('savingggg this.note', this.note);
 
 
-            // this.editedNote.id = this.note.id;
+            this.editedNote.id = this.note.id;
             this.editedNote.type = this.note.type;
             this.editedNote.title = this.note.title;
             this.editedNote.bgColor = this.note.bgColor;
