@@ -14,7 +14,7 @@ export default {
                     <div class="edit-container flex align-center column">
                         
                         <h2>Edit note</h2>
-                        <section v-if="note" >
+                        <section v-if="note">
                             <div class="edit-note-title-container flex column align-center">
                                 <h3>Title:</h3>
                                 <input class="title" ref="updatedInput" type="text" v-model="note.title">
@@ -23,7 +23,7 @@ export default {
                             <component :is="'add'+selectedType" v-if="selectedType" :note="note"></component>
                             <div class="edit-note-btns-container flex align-center">
                                 <button  class="btn edit-note-btn btn-color">
-                                    <input type="color" id="colorValue" name="color" value="#ffffff" @change="note.bgColor = $event.target.value"/>
+                                    <input type="color" id="colorValue" name="color" value="#ffffff" @change="note.bgColor = $event.target.value">
                                     <label for="colorValue"></label>
                                 </button>
                                 <button class="btn edit-note-btn btn-save" @click="saveNote">Save</button>
